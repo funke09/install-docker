@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: eemed/tachrone-frontend:test
+    container_name: tachrone-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - tachrone-network
+    restart:  on-failure
+
+  backend:
+    image: eemed/tachrone-backend:latest
+    container_name: tachrone-backend
+    expose:
+      - "8080"
+    networks:
+      - tachrone-network
+    env_file:
+      - ./tachrone_backend/.env
+    restart:  on-failure
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+networks:
+  tachrone-network:
+    driver: bridge
+
