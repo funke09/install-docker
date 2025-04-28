@@ -20,7 +20,7 @@ services:
     networks:
       - tachrone-network
     env_file:
-      - ./tachrone_backend/.env
+      - .env
     restart:  on-failure
     extra_hosts:
       - "host.docker.internal:host-gateway"
