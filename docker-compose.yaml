@@ -13,7 +13,7 @@ services:
     restart:  on-failure
 
   backend:
-    image: eemed/tachrone-backend:latest
+    image: eemed/tachrone-backend:test
     container_name: tachrone-backend
     expose:
       - "8080"
