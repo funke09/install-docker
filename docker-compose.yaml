@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   frontend:
-    image: eemed/tachrone-frontend:test
+    image: eemed/tachrone-frontend:prod
     container_name: tachrone-frontend
     ports:
       - "80:80"
@@ -13,7 +13,7 @@ services:
     restart:  on-failure
 
   backend:
-    image: eemed/tachrone-backend:test
+    image: eemed/tachrone-backend:prod
     container_name: tachrone-backend
     expose:
       - "8080"
